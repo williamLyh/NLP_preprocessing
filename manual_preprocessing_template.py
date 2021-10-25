@@ -48,9 +48,13 @@ def text_tokenizing(text, vocab_lookup, maxlen=20):
 
 
 vocab, embeddings = load_pretrained_embedding('glove.6B.100d.txt')
+# The official version of glove has the '<unk>' token in its vocab. 
+# Its embedding is the same as the last existing word in the vocab.
+
 vocab_lookup = {w:i for i, w in enumerate(vocab)}
 
 text, labels = load_file('train.txt')
 
-
 tokenized_text = text_tokenizing(text, vocab_lookup)
+print(tokenized_text)
+

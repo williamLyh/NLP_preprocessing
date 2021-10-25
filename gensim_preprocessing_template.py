@@ -20,10 +20,10 @@ embedding.requires_grad = False
 
 
 # Query
-query = 'nightmare'
-query_id = torch.tensor(model.key_to_index[query])
+word = 'nightmare'
+query_id = torch.tensor(model.key_to_index[word])
 
-gensim_vector = torch.tensor(model[query])
+gensim_vector = torch.tensor(model[word])
 embedding_vector = embedding(query_id)
 
 print(gensim_vector==embedding_vector)
